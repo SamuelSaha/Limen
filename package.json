@@ -17,24 +17,26 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "better-auth": "^1.2.0",
-    "@better-auth/nuxt": "^0.1.0",
-    "drizzle-orm": "^0.39.0",
-    "postgres": "^3.4.0",
-    "stripe": "^17.0.0",
-    "zod": "^3.24.0",
     "@aws-sdk/client-s3": "^3.700.0",
-    "resend": "^4.0.0",
-    "vue": "^3.5.0",
+    "@nuxt/fonts": "^0.14.0",
+    "better-auth": "^1.2.0",
+    "drizzle-orm": "^0.39.0",
     "nuxt": "^3.15.0",
-    "vue-router": "^4.5.0"
+    "postgres": "^3.4.0",
+    "resend": "^4.0.0",
+    "stripe": "^17.0.0",
+    "vue": "^3.5.0",
+    "vue-router": "^4.5.0",
+    "zod": "^3.24.0"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.12.0",
-    "drizzle-kit": "^0.30.0",
-    "typescript": "^5.7.0",
     "@nuxt/eslint": "^0.7.0",
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "@sentry/nuxt": "^9.0.0",
+    "@tailwindcss/postcss": "^4.2.1",
+    "@tailwindcss/vite": "^4.2.1",
+    "drizzle-kit": "^0.30.0",
     "tailwindcss": "^4.0.0",
-    "@sentry/nuxt": "^9.0.0"
+    "typescript": "^5.7.0"
   }
 }

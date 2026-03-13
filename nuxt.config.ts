@@ -1,13 +1,33 @@
+import tailwindcss from "@tailwindcss/vite";
+
 export default defineNuxtConfig({
   compatibilityDate: "2025-01-01",
 
   modules: [
-    "@nuxtjs/tailwindcss",
+    "@nuxt/fonts",
     "@sentry/nuxt/module",
     "@nuxt/eslint",
   ],
 
-  // SSR for public pages (landing, listings), SPA-like for dashboard
+  fonts: {
+    families: [
+      {
+        name: "Outfit",
+        weights: [300, 400, 500, 600, 700, 800],
+        provider: "google",
+      },
+    ],
+    defaults: {
+      preload: true,
+    },
+  },
+
+  css: ["~/assets/css/main.css"],
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
+
   ssr: true,
 
   routeRules: {
@@ -15,7 +35,6 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    // Server-only (never exposed to client)
     databaseUrl: "",
     stripeSecretKey: "",
     stripeWebhookSecret: "",
@@ -26,7 +45,6 @@ export default defineNuxtConfig({
     r2Endpoint: "",
     betterAuthSecret: "",
 
-    // Client-exposed
     public: {
       appUrl: "http://localhost:3000",
       stripePublishableKey: "",
@@ -34,7 +52,6 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    // WebSocket support for real-time notifications (Phase 3+)
     experimental: {
       websocket: true,
     },

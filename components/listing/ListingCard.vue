@@ -7,7 +7,7 @@ interface Listing {
   dateFrom: string;
   dateTo: string;
   flexibilityDays: number;
-  description?: string;
+  description?: string | null;
 }
 
 defineProps<{ listing: Listing }>();
@@ -21,33 +21,33 @@ function formatDate(d: string) {
 </script>
 
 <template>
-  <div class="rounded-lg border border-stone-200 bg-white p-5">
+  <div class="rounded-card border border-edge bg-card p-5 shadow-card transition-all duration-200 hover:shadow-card-hover">
     <div class="flex items-start justify-between">
       <div>
         <span
-          class="inline-block rounded-full px-2 py-0.5 text-xs font-medium"
+          class="inline-block rounded-pill px-2.5 py-1 text-xs font-semibold"
           :class="
             listing.intentType === 'host'
-              ? 'bg-emerald-50 text-emerald-700'
-              : 'bg-blue-50 text-blue-700'
+              ? 'bg-limen-light text-limen'
+              : 'bg-muted text-ink-secondary'
           "
         >
           {{ listing.intentType === "host" ? "Host" : "Traveler" }}
         </span>
-        <h3 class="mt-2 font-semibold">
+        <h3 class="mt-2 font-semibold text-ink">
           {{ listing.city }}, {{ listing.country }}
         </h3>
       </div>
-      <span class="text-sm text-stone-400">
+      <span class="rounded-pill bg-muted px-2.5 py-1 text-xs font-medium text-ink-secondary">
         ±{{ listing.flexibilityDays }}d
       </span>
     </div>
 
-    <p class="mt-1 text-sm text-stone-500">
+    <p class="mt-1.5 text-sm text-ink-secondary">
       {{ formatDate(listing.dateFrom) }} — {{ formatDate(listing.dateTo) }}
     </p>
 
-    <p v-if="listing.description" class="mt-3 text-sm text-stone-600">
+    <p v-if="listing.description" class="mt-3 text-sm leading-relaxed text-ink-secondary">
       {{ listing.description }}
     </p>
   </div>
